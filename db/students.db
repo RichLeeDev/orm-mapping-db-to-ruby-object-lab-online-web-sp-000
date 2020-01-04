@@ -1,9 +1,1 @@
-class Student
-  def self.new_from_db(data)
-    student = self.new
-    student.name = data[0]
-    student.
-    
-  end
-end
 
