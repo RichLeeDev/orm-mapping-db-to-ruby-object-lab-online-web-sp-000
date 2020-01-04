@@ -14,7 +14,7 @@ class Student
     FROM songs 
     SQL
     
-    DB =[:conn].execute(sql).map do |row|
+    DB = [:conn].execute(sql).map do |row|
       self.new_from_db(row)
     end
     
@@ -40,7 +40,7 @@ class Student
       VALUES (?, ?)
     SQL
 
-    DB[:conn].execute(sql, self.name, self.grade)
+    DB = [:conn].execute(sql, self.name, self.grade)
   end
   
   def self.create_table
@@ -52,12 +52,12 @@ class Student
     )
     SQL
 
-    DB[:conn].execute(sql)
+    DB = [:conn].execute(sql)
   end
 
   def self.drop_table
     sql = "DROP TABLE IF EXISTS students"
-    DB[:conn].execute(sql)
+    DB = [:conn].execute(sql)
   end
   
   def new_from_db(row)
@@ -76,7 +76,7 @@ class Student
     SQL
     
     
-    DB[:conn].execute(sql, name).map do |row|
+    DB = [:conn].execute(sql, name).map do |row|
       self.new_from_db(row)
     end.first
   end
@@ -88,7 +88,7 @@ class Student
     WHERE grade = 9 
     SQL
     
-    DB =[:conn].execute(sql).map do |row|
+    DB = [:conn].execute(sql).map do |row|
       self.new_from_db(row)
     end
   end
